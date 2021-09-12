@@ -2,9 +2,11 @@ import React from "react"
 import { Layout } from "../components"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import SEO from "../components/seo"
 const Error = () => {
   return (
     <Layout>
+      <SEO title="Not found" description="Not found your website" />
       <Wrapper>
         <div>
           <h1>oops.</h1>
@@ -19,7 +21,7 @@ const Error = () => {
 }
 
 const Wrapper = styled.main`
-  margin-top: -5rem;
+  margin-top: -8rem;
   background: var(--clr-primary-8);
   min-height: calc(100vh - 5rem);
   display: grid;

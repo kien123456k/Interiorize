@@ -1,11 +1,12 @@
 import React from "react"
 import styled from "styled-components"
+
 const Footer = () => {
   return (
     <Wrapper>
       <p>
-        &copy; {new Date().getFullYear()} John Smilga. All rights reserved.
-        Built with Gatsby
+        &copy; {new Date().getFullYear()} Kirin Tran. All rights reserved. Built
+        with Gatsby
       </p>
     </Wrapper>
   )

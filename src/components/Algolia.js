@@ -1,19 +1,43 @@
-// Search.js
-
 import React from "react"
 import styled from "styled-components"
-import Image from "gatsby-image"
+
 import Title from "./Title"
 import algoliasearch from "algoliasearch/lite"
-import {
-  InstantSearch,
-  SearchBox,
-  Hits,
-  connectHits,
-} from "react-instantsearch-dom"
+import { InstantSearch, SearchBox, connectHits } from "react-instantsearch-dom"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
+const searchClient = algoliasearch(
+  process.env.GATSBY_ALGOLIA_APP_ID,
+  process.env.GATSBY_ALGOLIA_SEARCH_KEY
+)
+
+const NewHits = connectHits(({ hits }) => {
+  return hits.map(item => {
+    const { objectID, name, image } = item
+    return (
+      <article key={objectID}>
+        <GatsbyImage image={getImage(image)} className="img" alt={name} />
+        <h4>{name}</h4>
+      </article>
+    )
+  })
+})
 
 const Search = () => {
-  return <h2>algolia search</h2>
+  return (
+    <Wrapper>
+      <Title title="Algolia Search" />
+      <InstantSearch
+        searchClient={searchClient}
+        indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
+      >
+        <SearchBox />
+        <Container className="section-center">
+          <NewHits />
+        </Container>
+      </InstantSearch>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`

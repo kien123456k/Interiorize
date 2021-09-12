@@ -5,33 +5,32 @@ import {
   GiStabbedNote,
   GiBriefcase,
 } from "react-icons/gi"
-export default [
+
+const services = [
   {
     id: 1,
     icon: <GiCompass className="icon" />,
     label: "mission",
-    text:
-      " Activated charcoal post-ironic unicorn flexitarian tumeric, direct trade man bun mumblecore kickstarter art party. ",
+    text: "Our goal is to bring the most comfortable, gorgeous as well as stylish to your interior design.",
   },
   {
     id: 2,
     icon: <GiDiamondHard className="icon" />,
     label: "vision",
-    text:
-      " Brooklyn mustache polaroid neutra. Wolf subway tile gluten-free bushwick, godard letterpress pitchfork direct trade put a bird on",
+    text: "Interior environemt takes an important role in almost everybody life. Motivate and stimulate everyone's inspiration as well as enhance life quality.",
   },
   {
     id: 3,
     icon: <GiStabbedNote className="icon" />,
     label: "history",
-    text:
-      "Chia pinterest locavore letterpress tote bag. Subway tile PBR&B knausgaard locavore quinoa four loko disrupt photo booth hella.",
+    text: "Created by Kirin Tran in 2021, we just begin our journey and have many customers from all over the world such as American, China, etc...",
   },
   {
     id: 4,
     icon: <GiBriefcase className="icon" />,
     label: "work",
-    text:
-      "Man braid banh mi prism disrupt hella cray mlkshk jean shorts typewriter synth salvia direct trade pabst knausgaard.",
+    text: "We have a professional team that have many certifications as well as professors and masters from popular University such as Harvard, Royal College of Art and so on.",
   },
 ]
+
+export default services

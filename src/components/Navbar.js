@@ -4,16 +4,46 @@ import logo from "../images/logo.svg"
 import { GoThreeBars } from "react-icons/go"
 import { Link } from "gatsby"
 import NavLink from "./NavLink"
+import { GatsbyContext } from "../context/context"
 
 const Navbar = () => {
-  return <h2>navbar component</h2>
+  const { isSidebarOpen, showSidebar, links } = useContext(GatsbyContext)
+  const tempLinks = [
+    ...new Set(
+      links.map(link => {
+        return link.page
+      })
+    ),
+  ]
+
+  return (
+    <Wrapper>
+      <div className="nav-center">
+        <div className="nav-header">
+          <Link to="/">
+            <img src={logo} alt="design" />
+          </Link>
+          {!isSidebarOpen && (
+            <button className="toggle-btn" onClick={showSidebar}>
+              <GoThreeBars />
+            </button>
+          )}
+        </div>
+        <ul className="nav-links">
+          {tempLinks.map((page, index) => {
+            return <NavLink key={index} page={page} />
+          })}
+        </ul>
+      </div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.nav`
   position: relative;
   background: transparent;
   z-index: 1;
-  height: 5rem;
+  height: 8rem;
   display: flex;
   align-items: center;
   .nav-center {
@@ -27,7 +57,9 @@ const Wrapper = styled.nav`
     align-items: center;
     justify-content: space-between;
     img {
-      width: auto;
+      width: 240px;
+      height: 260px;
+      color: white;
     }
     .toggle-btn {
       width: 3.5rem;
