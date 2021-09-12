@@ -8,7 +8,7 @@ module.exports = {
     description: `Interior Design Landing Page for Interiorize`,
     author: `@kirintran`,
     titleTemplate: `%s | Interiorize`,
-    url: `https://gatsby-airtable-design-project.netlify.app/`,
+    url: `https://interiorize.netlify.app/`,
     image: `mainBcg.png`,
     twitterUsername: `@TrungKi38839845`,
   },
